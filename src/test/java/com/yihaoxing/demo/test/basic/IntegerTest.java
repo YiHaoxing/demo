@@ -3,10 +3,6 @@ package com.yihaoxing.demo.test.basic;
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-/**
- * @author YiHaoxing
- * @date 2020/7/6 10:33
- */
 @SpringBootTest
 public class IntegerTest {
     @Test
