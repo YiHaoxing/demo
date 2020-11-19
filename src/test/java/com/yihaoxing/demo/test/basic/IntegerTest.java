@@ -81,4 +81,20 @@ public class IntegerTest {
      *
      * 总之，int和Integer比较的规则就上边这几点，熟悉掌握，然后大部分的面试问题就可以应付（万变不离其宗）
      */
+
+
+    @Test
+    public void test06(){
+        Integer a = null;
+        Integer b = 1;
+        int c = 1;
+        // a == b 结果为false
+        if(a == b){}
+        // 这行代码会报空指针异常.因为Integer和基础数字比较时,会自动进行拆箱操作
+        // 所以实际执行的代码是:a.intValue() == 1
+        // 由于a = null,所以执行这行代码时就报空指针异常
+        if(a == 1){}
+        // 这行代码也会报空指针异常.原因同上
+        if(a == c){}
+    }
 }
