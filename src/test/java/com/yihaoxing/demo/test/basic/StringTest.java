@@ -6,10 +6,7 @@ import org.junit.Test;
 import org.springframework.beans.BeanUtils;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 /**
@@ -69,10 +66,11 @@ public class StringTest {
 
 
         Integer t = null;
-        if(t == 1){
+        if (t == 1) {
             System.out.println(t);
         }
     }
+
     @Data
     public static class Demo {
         String a;
@@ -101,5 +99,50 @@ public class StringTest {
 
         Map<String, List<Demo>> collect = list.stream().collect(Collectors.groupingBy(Demo::getA));
 
+    }
+
+
+    @Test
+    public void test08() {
+        int i = Integer.MAX_VALUE;
+        int j = Integer.MAX_VALUE;
+        System.out.println(i);
+        System.out.println(j);
+        System.out.println(i + j);
+    }
+
+
+    @Test
+    public void test09() {
+        new HashMap<String, String>();
+        System.out.println(test());
+    }
+
+    public int test() {
+        Demo[] demos = new Demo[10];
+        HashSet<Integer> hashSet = new HashSet<>();
+        int a = 1;
+        try {
+            return a;
+        } finally {
+            a = 2;
+            return a;
+        }
+    }
+
+    @Test
+    public void test10() {
+        ArrayList<String> userNames = new ArrayList<String>() {{
+            add("a");
+            add("b");
+            add("c");
+            add("d");
+        }};
+        for (String userName : userNames) {
+            if (userName.equals("b")) {
+                userNames.remove(userName);
+            }
+        }
+        System.out.println(userNames);
     }
 }

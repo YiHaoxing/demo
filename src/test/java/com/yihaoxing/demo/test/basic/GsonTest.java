@@ -24,7 +24,7 @@ public class GsonTest {
 
     @Test
     public void test01() throws IOException {
-        String data = "{\"PRE_BREAKFAST\":{\"low\":3.3,\"high\":5.3},\"POST_SUPPER\":{\"low\":1.2,\"high\":35.0},\"POST_BREAKFAST_1\":{\"low\":4.0,\"high\":7.8},\"RANDOM\":{\"low\":1.2,\"high\":35.0},\"POST_SUPPER_1\":{\"low\":4.0,\"high\":7.8},\"POST_LUNCH_1\":{\"low\":4.0,\"high\":7.8},\"MIDNIGHT\":{\"low\":3.3,\"high\":5.3},\"PRE_SLEEP\":{\"low\":3.3,\"high\":5.3},\"POST_LUNCH\":{\"low\":1.2,\"high\":35.0},\"PRE_LUNCH\":{\"low\":1.0,\"high\":33.7},\"POST_BREAKFAST\":{\"low\":1.2,\"high\":35.0},\"PRE_SUPPER\":{\"low\":1.0,\"high\":33.7}}";
+        String data = "{}";
         Map<String, SimpleModel> map = toMap(data, String.class, SimpleModel.class);
         ArrayList<SimpleModel> list = new ArrayList<>();
         for (String s : map.keySet()) {
@@ -41,9 +41,9 @@ public class GsonTest {
             simpleModel.setHigh((float) i);
             simpleModel.setLow((float) i);
             simpleModel.setTime(LocalDateTime.now());
-            Demo2 demo2 = new Demo2();
-            demo2.setB(i);
-            simpleModel.setDemos(Lists.newArrayList(demo2));
+            Demo demo = new Demo();
+            demo.setB(i);
+            simpleModel.setDemos(Lists.newArrayList(demo));
             arrayList.add(simpleModel);
         }
         String json = gson.toJson(arrayList);

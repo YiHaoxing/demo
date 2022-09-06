@@ -16,5 +16,5 @@ public class SimpleModel {
     private Float low;
     private Float high;
     private LocalDateTime time;
-    private List<Demo2> demos;
+    private List<Demo> demos;
 }
