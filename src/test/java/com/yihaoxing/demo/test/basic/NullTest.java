@@ -29,7 +29,7 @@ public class NullTest {
     }
 
     @Test
-    public void test06(){
+    public void test02(){
         Integer a = null;
         Integer b = 1;
         int c = 1;
