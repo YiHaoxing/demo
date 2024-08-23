@@ -7,6 +7,8 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 /**
@@ -144,5 +146,51 @@ public class StringTest {
             }
         }
         System.out.println(userNames);
+    }
+
+    @Test
+    public void test11() {
+        String a = null;
+        String b = "b";
+        String c = "c";
+        Integer d = 1;
+        Integer e = null;
+
+        String s = a + "_" + b + "_" + c + "_" + d + "_" + e;
+        System.out.println(s);
+    }
+
+    @Test
+    public void test12() {
+        String a = "abc";
+        String b = "abc";
+        System.out.println(a == b);
+
+        String s1 = new String("abc");
+        String s2 = new String("abc");
+
+        System.out.println(s1.length());
+        System.out.println(s1 == s2);
+    }
+
+    // 正则表达式模式：匹配连续的长度超过10的数字字符串
+    private static final String LONG_NUMBER_REGEX = "\\d{10,}";
+    private static final String EXACT_LENGTH_NUMBER_REGEX = "\\b\\d{5}\\b";
+
+    public static String removeLongNumbers(String input) {
+        // 创建一个Pattern对象
+        Pattern pattern = Pattern.compile(LONG_NUMBER_REGEX);
+        // 创建一个Matcher对象
+        Matcher matcher = pattern.matcher(input);
+        // 使用replaceAll方法将匹配的部分替换为空字符串
+        return matcher.replaceAll("");
+    }
+
+    @Test
+    public void test13() {
+        String input = "[WCM11OR] [\"WCM11OR - 户口 6232620251280121 未开通相应渠道\"]";
+        String result = removeLongNumbers(input);
+        System.out.println("原始字符串: " + input);
+        System.out.println("过滤后的字符串: " + result);
     }
 }
