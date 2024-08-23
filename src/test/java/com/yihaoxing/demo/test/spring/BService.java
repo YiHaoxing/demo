@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 /**
- * <p></p>
+ * 用于测试spring循环依赖
  *
  * @author yihaoxing
  * @since 2022/8/31 22:19
