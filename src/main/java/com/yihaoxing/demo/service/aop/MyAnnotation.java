@@ -9,5 +9,4 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.RUNTIME)
 public @interface MyAnnotation {
     String value();
-    int paramIndex() default 0; // 参数索引
 }
